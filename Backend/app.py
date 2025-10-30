@@ -9,7 +9,7 @@ CORS(app)
 app.config['JSON_AS_ASCII'] = False
 
 # -----------------------------------
-# 🔹 Datos simulados (en formato JSON)
+# Estructur de Datos en Formato JSON 
 # -----------------------------------
 estudiantes = [
     {"id": 1, "nombre": "Gabriela Lanchimba", "edad": 20, "carrera": "Ingenieria en Software", "semestre": 4},
@@ -19,7 +19,7 @@ estudiantes = [
 ]
 
 # ===================================================
-# 1️⃣ GET / → Ruta principal (descripcion general)
+# 1️. GET / → Ruta principal (pequeña descripcion general)
 # ===================================================
 @app.route('/')
 def home():
@@ -34,24 +34,24 @@ def home():
     })
 
 # ===================================================
-# 2️⃣ GET /api/saludo → Mensaje de saludo (endpoint propio)
+# 2️. GET /api/saludo → Mensaje de saludo 
 # ===================================================
 @app.route('/api/saludo', methods=['GET'])
 def saludo():
     return jsonify({
-        "saludo": " Holaaa Ing y guaguas! Bienvenidos al Web Service Flask",
+        "saludo": " Holaaa Inge Anitaaa y Chiquill@s Bienvenidos al Web Service Flask",
         "mensaje": "Este es el endpoint de saludo , donde empieza todo la chamba!"
     })
 
 # ===================================================
-# 3️⃣ GET /api/estudiantes → Lista todos los estudiantes
+# 3️. GET /api/estudiantes → Lista todos los estudiantes
 # ===================================================
 @app.route('/api/estudiantes', methods=['GET'])
 def listar_estudiantes():
     return jsonify(estudiantes)
 
 # ===================================================
-# 4️⃣ GET /api/estudiantes/<id> → Obtener estudiante por ID
+# 4️. GET /api/estudiantes/<id> → Obtiene el estudiante por ID
 # ===================================================
 @app.route('/api/estudiantes/<int:id>', methods=['GET'])
 def obtener_estudiante(id):
@@ -62,7 +62,7 @@ def obtener_estudiante(id):
         return jsonify({"error": f"No se encontro ningun estudiante con ID {id}"}), 404
 
 # ===================================================
-# 5️⃣ GET /api/estudiantes/carrera/<carrera> → Filtrar por carrera
+# 5. GET /api/estudiantes/carrera/<carrera> → Filtra por carrera
 # ===================================================
 @app.route('/api/estudiantes/carrera/<string:carrera>', methods=['GET'])
 def filtrar_por_carrera(carrera):
